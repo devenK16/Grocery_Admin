@@ -69,7 +69,7 @@ class OTPFragment : Fragment() {
 
     private fun verifyOtp(otp: String) {
         val user =
-            Admin(uid = null, userPhoneNumber = userNumber, userAddress = null)
+            Admin(uid = null, userPhoneNumber = userNumber)
         viewmodel.apply {
             signInWithPhoneAuthCredential(otp, userNumber , user)
 

@@ -2,18 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".fragments.addProductFragment">
+    tools:context=".AddProductsFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/yellow"
-        app:titleTextColor="#FFFFFF"
-        app:title="Add Product"/>
 
     <TextView
         android:id="@+id/textView"
@@ -24,7 +18,7 @@
         android:textStyle="bold"
         android:layout_marginTop="@dimen/_10sdp"
         android:textSize="@dimen/_13ssp"
-        android:text="Please fill Product details" />
+        android:text="Edit Product" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -44,6 +38,7 @@
                 app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
                 app:boxCornerRadiusBottomStart="@dimen/_12sdp"
                 app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                android:enabled="false"
                 app:boxCornerRadiusTopStart="@dimen/_12sdp"
                 app:cursorColor="@color/yellow"
                 app:endIconMode="clear_text"
@@ -79,6 +74,7 @@
                     app:boxCornerRadiusTopStart="@dimen/_12sdp"
                     app:cursorColor="@color/yellow"
                     app:endIconMode="clear_text"
+                    android:enabled="false"
                     app:hintTextColor="@color/yellow">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -102,6 +98,7 @@
                     app:boxCornerRadiusTopEnd="@dimen/_12sdp"
                     app:boxCornerRadiusTopStart="@dimen/_12sdp"
                     app:cursorColor="@color/yellow"
+                    android:enabled="false"
                     app:hintTextColor="@color/yellow">
 
                     <AutoCompleteTextView
@@ -134,6 +131,7 @@
                     app:boxCornerRadiusTopStart="@dimen/_12sdp"
                     app:cursorColor="@color/yellow"
                     app:endIconMode="clear_text"
+                    android:enabled="false"
                     app:hintTextColor="@color/yellow">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -157,6 +155,7 @@
                     app:boxCornerRadiusTopEnd="@dimen/_12sdp"
                     app:boxCornerRadiusTopStart="@dimen/_12sdp"
                     app:cursorColor="@color/yellow"
+                    android:enabled="false"
                     app:hintTextColor="@color/yellow">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -179,6 +178,7 @@
                 app:boxCornerRadiusTopEnd="@dimen/_12sdp"
                 app:boxCornerRadiusTopStart="@dimen/_12sdp"
                 app:cursorColor="@color/yellow"
+                android:enabled="false"
                 app:hintTextColor="@color/yellow">
 
                 <AutoCompleteTextView
@@ -203,6 +203,7 @@
                 app:boxCornerRadiusTopEnd="@dimen/_12sdp"
                 app:boxCornerRadiusTopStart="@dimen/_12sdp"
                 app:cursorColor="@color/yellow"
+                android:enabled="false"
                 app:hintTextColor="@color/yellow">
 
                 <AutoCompleteTextView
@@ -215,55 +216,40 @@
                     android:hint="Product Type"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Please Select Some Images"
-                    android:textColor="@color/yellow"
-                    android:textSize="@dimen/_13ssp"
-                    android:textStyle="bold" />
-
-                <ImageButton
-                    android:id="@+id/btnSelectedimage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_1sdp"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/baseline_add_photo_alternate_24"
-                    app:tint="@color/black" />
+                android:orientation="horizontal"
+                android:weightSum="1">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:text="Edit"
+                    android:textSize="@dimen/_15sdp"
+                    android:layout_weight="0.5"
+                    android:textColor="#FFFFFF"
+                    app:cornerRadius="@dimen/_7sdp"
+                    android:backgroundTint="@color/yellow" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/save"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:text="Save"
+                    android:textSize="@dimen/_15sdp"
+                    android:layout_weight="0.5"
+                    android:textColor="#FFFFFF"
+                    app:cornerRadius="@dimen/_7sdp"
+                    android:backgroundTint="@color/yellow" />
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/selectedImageRv"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_80sdp"
-                android:layout_marginHorizontal="@dimen/_12sdp"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/sample_selected_image" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnAddProduct"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_45sdp"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_3sdp"
-                android:text="Add Product"
-                android:textSize="@dimen/_15sdp"
-                android:textColor="#FFFFFF"
-                app:cornerRadius="@dimen/_7sdp"
-                android:backgroundTint="@color/yellow" />        </LinearLayout>
+        </LinearLayout>
 
     </ScrollView>
 
